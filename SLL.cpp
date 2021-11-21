@@ -21,6 +21,21 @@ void DeleteFirst(PPNODE Head )
 
 
 }
+void DeleteLast(PPNODE Head)
+{
+    if(*Head == NULL)
+    {
+        return;
+    }
+    PNODE temp = *Head;
+    while(temp->next->next != NULL)
+    {
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next =NULL;
+
+}
 
 
 void InsertFirst(PPNODE Head , int no)
@@ -90,6 +105,8 @@ int main()
     Display(first);
     DeleteFirst(&first);
 
+    Display(first);
+    DeleteLast(&first);
     Display(first);
 
 
