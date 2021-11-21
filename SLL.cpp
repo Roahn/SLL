@@ -91,11 +91,23 @@ void Display(PNODE Head)
     }
     cout<<"\n";
 }
+int Count(PNODE Head)
+{
+    int count = 0;
+     while(Head!= NULL)
+    {
+        count++;
+        Head = Head->next;
+    }
+    return count;
+    
+}
 int main()
 {
 ///Singly Linear Linked List
 
     PNODE first = NULL;
+    int ret =0;
   
     InsertLast(&first,10);
     InsertLast(&first,20);
@@ -108,7 +120,8 @@ int main()
     Display(first);
     DeleteLast(&first);
     Display(first);
-
+    ret =Count(first);
+    cout<<"Number of elements are "<<ret;
 
 
 
