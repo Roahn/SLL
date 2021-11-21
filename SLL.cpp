@@ -107,8 +107,9 @@ int Count(PNODE Head)
 void DeleteAtPos(PPNODE Head , int pos)
 {
 
-    if((pos<1)|| (pos>Count(*Head)+1))
+   if((pos<1)|| (pos>Count(*Head)+1))
     {
+        cout<<"Please Enter correct position\n";
         return;
     }
     if(*Head == NULL)
@@ -121,15 +122,18 @@ void DeleteAtPos(PPNODE Head , int pos)
     }
     else
     {
-       
+     
         PNODE temp = *Head;
        
-
-        for(int i = 1 ; i<pos;i++)
+        for(int i = 1 ; i<pos-1;i++)
         {
-            
-            
+           temp = temp->next;
         }
+        PNODE tobedeleted =temp->next;
+        temp->next = temp->next->next;
+        delete tobedeleted;
+
+         
     }
 
 }
