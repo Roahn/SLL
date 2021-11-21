@@ -8,6 +8,20 @@ typedef struct node
     struct node * next;
 }NODE ,* PNODE ,**PPNODE;
 
+void DeleteFirst(PPNODE Head )
+{
+    if(*Head == NULL)
+    {
+        return;
+    }
+    PNODE temp = *Head;
+
+    *Head = (*Head)->next;
+    delete temp;
+
+
+}
+
 
 void InsertFirst(PPNODE Head , int no)
 {
@@ -73,6 +87,8 @@ int main()
     InsertLast(&first,30);
     InsertLast(&first,40);
     InsertLast(&first,50);
+    Display(first);
+    DeleteFirst(&first);
 
     Display(first);
 
